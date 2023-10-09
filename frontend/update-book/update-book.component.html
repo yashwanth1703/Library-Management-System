@@ -1,0 +1,25 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<div class="w3-container w3-blue-gray">
+    <h2>Update the Book</h2>
+  </div>
+  
+  <form (ngSubmit)="onSubmit()"  class="w3-container w3-pale-blue" [formGroup]="updateBook">
+   
+    <p>
+        <input class="w3-input w3-pale-blue" type="text" id="bookCost" [(ngModel)]="book.bookCost" name="bookCost" formControlName="bookCost">
+        <label>Cost of the book</label></p>
+        <span *ngIf="bookCost && bookCost.invalid && bookCost.touched"></span>
+    <p>
+        <input class="w3-input w3-pale-blue" type="text" id="ratingOfBook" [(ngModel)]="book.ratingOfBook" name="ratingOfBook" formControlName="ratingOfBook">
+        <label>Name of the book</label></p>
+        <span *ngIf="ratingOfBook && ratingOfBook.invalid && ratingOfBook.touched"></span>
+        
+    <div class="flex-parent jc-center">
+    <button class="w3-btn w3-green" [disabled]="updateBook.invalid">Submit</button>      
+    <button class="w3-btn w3-red" (click)="getAllBooks()">Cancel</button></div>        
+  </form>
+  
+</html>

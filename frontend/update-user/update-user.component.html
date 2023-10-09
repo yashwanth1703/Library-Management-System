@@ -1,0 +1,22 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<div class="w3-container w3-blue-gray" >
+    <h2>Update the USer</h2>
+  </div>
+  
+  <form (ngSubmit)="OnSubmit()"  class="w3-container w3-pale-blue" >
+    <p>
+    <input class="w3-inpu  w3-pale-blue" type="text" id="userEmail" [(ngModel)]="user.userEmail" name="userEmail" #userEmail>
+    <label>New user Email</label></p>
+ 
+    
+   
+    <div class="flex-parent jc-center"> 
+    <button class="w3-btn w3-green" >Submit</button>      
+    <button class="w3-btn w3-red" (click)="getAllUsers()">Cancel</button>
+    </div>
+  </form>
+  
+</html>

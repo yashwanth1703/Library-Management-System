@@ -1,0 +1,13 @@
+.w3-container{
+    background-color: white;
+}
+.flex-parent{
+    display:flex;
+}
+.jc-center{
+    justify-content: center;
+
+}
+.button.margin-right{
+    margin-right:20px;
+}

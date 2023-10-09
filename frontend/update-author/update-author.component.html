@@ -1,0 +1,25 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<div class="w3-container w3-blue-gray" >
+    <h2>Update the Book</h2>
+  </div>
+  
+  <form (ngSubmit)="onSubmit()"  class="w3-container w3-pale-blue" >
+    <p>
+    <input class="w3-input w3-pale-blue" type="text" id="authorEmail" [(ngModel)]="author.authorEmail" name="authorEmail" >
+    <label>Enter new author's email</label></p>
+ 
+    <p>
+        <input class="w3-input w3-pale-blue" type="text" id="qualifications" [(ngModel)]="author.qualifications" name="qualifications" >
+        <label>Enter the author's qualifications</label></p>
+        
+        
+    <div class="flex-parent jc-center">
+    <button class="w3-btn w3-green" >Submit</button>    
+    <button class="w3-btn w3-red" (click)="getAllAuthors()">Cancel</button></div>       
+
+  </form>
+  
+</html>
