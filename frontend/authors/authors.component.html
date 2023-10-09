@@ -1,0 +1,62 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<body>
+    <h2 style="text-align: center;">Authors</h2>
+
+    <div class="main-search-input-wrap">
+       
+     
+      <div class="main-search-input fl-wrap">
+                                          <div class="main-search-input-item">
+                                              <input type="text" [(ngModel)]="authorName" placeholder="Search Authors...">
+                                          </div>
+                                          
+                                          <button class="main-search-button" (click)="getAuthorByName()" >Search</button>
+                                      </div>
+                                      
+    
+                                      </div>
+
+    <table class="table table-hover" style="background-color: yellow;color:black;border-radius: 10px;">
+        <thead style="background-color: black;color:yellow">
+          <tr class="w3-green">
+            <th> Author Id</th>
+            <th> Author Name</th>
+            <th> Author Email</th>
+            <th>Date Of Birth</th>
+            <th>Qualifications</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let author of author | paginate:{itemsPerPage:count,currentPage:p}" >
+                <td>{{author.authorId}}</td>
+                <td>{{author.authorName}}</td>
+                <td>{{author.authorEmail}}</td>
+                <td>{{author.dateOfBirth}}</td>
+                <td>{{author.qualifications}}</td>
+                <td>
+                
+                        <div class="dropdown">
+                         <button class="dropbtn">Actions</button>
+                           <div class="dropdown-content">
+                              <a (click)=" updateAuthor(author.authorId)">Update</a>
+                              <a (click)=" viewAuthor(author.authorId)">View</a>
+                             
+                              
+                           </div>
+                        </div>
+                      
+                </td>
+            </tr>
+        </tbody>
+      </table>
+      
+      
+      <div class="paginate">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    
+    
+</body>

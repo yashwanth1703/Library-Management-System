@@ -1,0 +1,13 @@
+.flex-parent{
+    display: flex;
+}
+.jc-center{
+    justify-content: center;
+}
+button.w3-btn w3-green{
+   margin-right: 20px;
+   margin-left: 20px;
+}
+span{
+    color:red
+}

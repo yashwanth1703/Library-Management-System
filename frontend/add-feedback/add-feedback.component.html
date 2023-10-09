@@ -1,0 +1,48 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<body>
+    <form [formGroup]= "addFeedback"   class="w3-container w3-card-4" style="background-color:yellow;">
+    <h2 class="w3-text-white w3-black">FeedBack Form</h2>
+    <h3 class="w3-text-lightblue">please give your valuable feedback on how to improve ourself</h3>
+        <p>
+            <label for="book" >Select a book</label>
+            <select name="bookCode" id="book" [(ngModel)]="selectedBookIds[i]">
+            <option value="select-book">select the book code</option>
+            <option *ngFor="let book of books" [value]="book.bookISBN">{{book.bookName}}</option>
+            </select>
+        </p>
+       <p>
+        <label for="book" > Book Rating</label>
+            <select name="bookrating" id="book" [(ngModel)]="feedback.bookRating">
+            <option value="book-rating">select rating</option>
+           <option value="1">1</option>
+           <option value="2">2</option>
+           <option value="3">3</option>
+           <option value="4">4</option>
+           <option value="5">5</option>
+            </select>
+       </p>
+       <p>
+        <label for="rating" > Overall Rating</label>
+            <select name="overallrating" id="rating" [(ngModel)]="feedback.overallRating">
+            <option value="overall-rating">select rating</option>
+           <option value="1">1</option>
+           <option value="2">2</option>
+           <option value="3">3</option>
+           <option value="4">4</option>
+           <option value="5">5</option>
+            </select>
+       </p>
+        <p>
+            <label class="w3-text-black"><b>describe your experience:</b></label>
+            <textarea class="w3-input w3-border" name="comments" rows="5" cols="10" [(ngModel)]="feedback.comments" formControlName="comments"></textarea>
+            <span *ngIf="comments && comments.invalid && comments.touched">Please Enter something about your experience so that we can improve </span>
+        </p>  
+        <div class="flex-parent jc-center">
+        <button (click)="OnSubmit(selectedBookIds[i])"class="w3-btn w3-green" [disabled]="addFeedback.invalid" >Submit</button>
+        <button (click)="getFeedbackList()" class="w3-btn w3-red"  >Cancel</button></div>
+
+    </form>
+</body>

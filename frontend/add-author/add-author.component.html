@@ -1,0 +1,31 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+    <div class="w3-container w3-black">
+        <h2>Register Author</h2>
+      </div>
+    <form (ngSubmit) = "OnSubmit()" class="w3-container w3-yellow" [formGroup]="addAuthor">
+            <p>
+            <label>Author Name</label>
+            <input class="w3-input w3-white" type="text" id="authorName" [(ngModel)]="author.authorName" name="authorName" formControlName="authorName"></p>
+            <span *ngIf="authorName && authorName.invalid && authorName.touched">This is a required field enter the name </span>
+            <p>
+            <label>Author Email</label>
+            <input class="w3-input w3-white" type="email" id="authorEmail" [(ngModel)]="author.authorEmail" name="authorEmail" formControlName="authorEmail"></p>
+            <span *ngIf="authorEmail && authorEmail.invalid && authorEmail.touched"> This is a required field enter the valid email </span>
+            <p>
+            <label>Date Of birth</label>
+            <input class="w3-input w3-white" type="text" id="dateOfBirth" [(ngModel)]="author.dateOfBirth" name="dateOfBirth" formControlName="dateOfBirth"></p>
+            <span *ngIf="dateOfBirth && dateOfBirth.invalid && dateOfBirth.touched">This is a required field enter the date in 'dd/mm/yyyy' format </span>
+            <p>
+            <label>Qualifications</label>
+            <input class="w3-input w3-white" type="text" id="qualifications" [(ngModel)]="author.qualifications" name="qualifications" formControlName="qualifications">
+            <span *ngIf="qualifications && qualifications.invalid && qualifications.touched">This is a required field enter the qualifications</span>
+            </p>
+            <div class="flex-parent jc-center">
+                <button class="w3-btn w3-green" [disabled]="addAuthor.invalid">Register</button>
+                <button class="w3-btn w3-red" (click)="getAllAuthors()" >Cancel</button>
+            </div>
+
+    </form>
+</body>
