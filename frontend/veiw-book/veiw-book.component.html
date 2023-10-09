@@ -1,0 +1,69 @@
+<head>
+  <title>Harvest vase</title>
+  <link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+</head>
+<body>
+  <div class="wrapper">
+    <div class="product-img">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0xPYkKN6lzDxRiF4fFdifGGJuPW4hv_MY-Q&usqp=CAU" height="420" width="327">
+    </div>
+    <div class="product-info">
+      <div class="product-text">
+        <h1>Book Details</h1>
+        <p><b>Book ISBN : </b>{{particularBook.bookISBN}}</p>
+        <p><b>Book Name :</b> {{particularBook.bookName}}</p>
+        <p><b>Book Author :</b> {{particularBook.author}}</p>
+        <p><b>Book Cost :</b> {{particularBook.bookCost}}</p>
+        <p><b>Number of Books :</b> {{particularBook.noOfBooks}}</p>
+        <p><b>Rating of the Book :</b>{{particularBook.ratingOfBook}}</p>
+        <p><b>Genere of Book:</b>{{particularBook.categoryDetails}}</p>
+        <p><b>Is Published :</b>{{particularBook.isPublished}}</p>
+        
+    
+       
+      </div>
+      <div class="product-price-btn">
+        <button onclick="document.getElementById('id01').style.display='block'" >About Author</button>
+        <button type="button"  onclick="document.getElementById('id02').style.display='block'" (click)="buyNow()" >buy now</button>
+      </div>
+      <div class="product-price-btn">
+        <button type="button" (click)="getBooksList()">Back</button>
+      </div>
+    </div>
+  </div>
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-4">
+      <header class="w3-container w3-black"> 
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>Author Details</h2>
+      </header>
+      <div class="w3-container w3-yellow">
+        <p><b>AuthorId:</b>{{particularAuthor.authorId}}</p>
+        <p><b>Author Name:</b>{{particularAuthor.authorName}}</p>
+        <p><b>Date Of Birth:</b>{{particularAuthor.dateOfBirth}}</p>
+        <p><b>Author Email:</b>{{particularAuthor.authorEmail}}</p>
+        <p><b>Qualifications:</b>{{particularAuthor.qualifications}}</p>
+      </div>
+     
+    </div>
+  </div>
+  <div id="id02" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-4">
+      <header class="w3-container w3-black"> 
+        <span onclick="document.getElementById('id02').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>OTP validation</h2>
+      </header>
+      <div class="w3-container w3-yellow">
+        <label><b>please enter the otp:</b></label>
+        <input type="text" class="w3-input w3-white w3-text-black" id="otp" name="otp" style="width:25%" #otp >
+        <button (click)="purchaseBook(otp.value)">validate</button>
+      </div>
+     
+    </div>
+  </div>
+
+</body>
