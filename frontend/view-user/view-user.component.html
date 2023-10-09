@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+</head>
+
+<body>
+    <h2 style="color:white;text-align: center;">User Profile</h2>
+    <div class="container" style="width:35%;height:fit-content;">
+        <div class="shape">
+            <div class="image"></div>
+        </div>
+        <p><b>User Id:</b>{{particularUser.userId}}</p>
+        <p><b>Name:</b>{{particularUser.userName}}</p>
+        <p><b>date of birth :</b>{{particularUser.dob}}</p>
+        <p><b>User Email</b>{{particularUser.userEmail}}</p>
+        <p><b>Role</b>{{particularUser.role}}</p>
+        <p><b>About User</b>{{particularUser.about}}</p>
+        <p><button style="color:white;background-color: black;border-radius: 30px;border-style: none;width:150px;height:50px" (click)="getAllUsers()" >back</button></p>
+        <p><button style="color:white;background-color: black;border-radius: 30px;border-style: none;width:150px;height:50px"  onclick="document.getElementById('id01').style.display='block'"  (click)="cardDetails()" >Books Borrowed</button></p>
+       
+        <p>Thank you for using our services  </p>
+
+  </div>
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-4">
+      <header class="w3-container w3-black"> 
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>Books Borrowed</h2>
+      </header>
+      <div class="w3-container w3-yellow">
+        <table class="w3-table  w3-bordered-black">
+            <thead>
+              <th>Book number</th>
+              <th>Book Name</th>
+              <th>Book Author</th>
+              <th>Book price</th>
+              <th>Genere</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let bookList of bookLists">
+                    <td>{{bookList.bookISBN}}</td>
+                    <td>{{bookList.bookName}}</td>
+                    <td>{{bookList.author}}</td>
+                    <td>{{bookList.bookCost}}</td>
+                    <td>{{bookList.categoryDetails}}</td>
+                </tr>
+            </tbody>
+        </table> 
+      </div>
+     
+    </div>
+  </div>
+      
+        
+    
+</body>
+
+</html>
