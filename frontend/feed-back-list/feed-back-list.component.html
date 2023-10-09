@@ -1,0 +1,50 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+<body>
+  <h2 style="color:white;text-align: center;"><b>Feedbacks</b> </h2>
+    <table class="w3-table w3-bordered w3-hoverable" style="background-color: yellow;color:black;border-radius: 10px;">
+        <thead  style="background-color:black;color:yellow">
+        <tr>
+          <th>Feedback Id</th>
+          <th>Rating of Book</th>
+          <th>Overall rating</th>
+          <th>Comments on Book</th>
+          <th>Actions</th>
+        </tr>
+       </thead>
+    
+    <tbody>
+        <tr class="w3-hover-yellow" *ngFor="let feedback of feedbacks | paginate:{itemsPerPage:count,currentPage:p}">
+           <!-- <td>{{book.bookISBN}}</td>
+           <td>{{user.userId}}</td> -->
+           <td> {{ feedback.feedBackId }} </td>
+           <td>{{feedback.bookRating}}</td>
+           <td>{{feedback.overallRating}}</td>
+           <td>{{feedback.comments}}</td>
+           <td>
+            <div class="dropdown">
+                <button class="dropbtn">Actions</button>
+                  <div class="dropdown-content">
+                     <a (click)=" viewFeedback(feedback.feedBackId )">View</a>
+                     <a (click)="deleteFeedback(feedback.feedBackId)" >Delete</a>
+                     
+                  </div>
+               </div>
+             </td>
+        
+        </tr>
+    </tbody>
+  </table>
+    <div *ngIf="feedbacks.length !== 0" style="display:flex;justify-content: center;align-items: center;">
+        <button class="m-3 btn btn-lg btn-danger" (click)="removeAllFeedbacks()">
+              Remove All
+            </button>
+      </div>
+
+      <div class="paginate">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+      
+</body>
